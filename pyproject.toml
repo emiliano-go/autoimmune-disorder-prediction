@@ -1,20 +1,35 @@
 [project]
 name = "autoimmune-disorder-prediction"
 version = "0.1.0"
-description = "Autoimmune Disorder Prediction model."
+description = "Machine-learning exploration for autoimmune disorder prediction using the Kaggle All Autoimmune Disorder 10k dataset."
 readme = "README.md"
 authors = [
     { name = "Emiliano Gandini Outeda", email = "emiliano.gandini@protonmail.com" }
 ]
 requires-python = ">=3.12.7"
+keywords = ["autoimmune-disorders", "machine-learning", "healthcare", "kaggle", "classification"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
 dependencies = [
+    "ipykernel>=7.3.0",
     "kagglehub>=1.0.2",
     "pandas>=3.0.5",
+    "pyarrow>=25.0.1",
+    "scikit-learn>=1.9.0",
 ]
 
 [project.scripts]
 predict = "autoimmune_disorder_prediction:main"
-download = "autoimmune_disorder_prediction.download_data:download"
+download = "autoimmune_disorder_prediction.data.download_data:download"
+
+[project.urls]
+Homepage = "https://github.com/emiliano-go/autoimmune-disorder-prediction"
+Repository = "https://github.com/emiliano-go/autoimmune-disorder-prediction"
 
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13.0"]
