@@ -1,16 +1,20 @@
 [project]
 name = "autoimmune-disorder-prediction"
 version = "0.1.0"
-description = "Add your description here"
+description = "Autoimmune Disorder Prediction model."
 readme = "README.md"
 authors = [
     { name = "Emiliano Gandini Outeda", email = "emiliano.gandini@protonmail.com" }
 ]
 requires-python = ">=3.12.7"
-dependencies = []
+dependencies = [
+    "kagglehub>=1.0.2",
+    "pandas>=3.0.5",
+]
 
 [project.scripts]
-autoimmune-disorder-prediction = "autoimmune_disorder_prediction:main"
+predict = "autoimmune_disorder_prediction:main"
+download = "autoimmune_disorder_prediction.download_data:download"
 
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13.0"]
