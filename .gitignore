@@ -1,2 +1,7 @@
 .pyc
 .csv
+.parquet
+.pkl
+.joblib
+__pycache__/
+.venv
