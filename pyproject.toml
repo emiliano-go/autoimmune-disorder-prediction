@@ -19,6 +19,7 @@ dependencies = [
     "ipykernel>=7.3.0",
     "kagglehub>=1.0.2",
     "pandas>=3.0.5",
+    "pandas-stubs~=3.0.5",
     "pyarrow>=25.0.1",
     "scikit-learn>=1.9.0",
 ]
@@ -26,6 +27,7 @@ dependencies = [
 [project.scripts]
 predict = "autoimmune_disorder_prediction:main"
 download = "autoimmune_disorder_prediction.data.download_data:download"
+clean = "autoimmune_disorder_prediction.data.cleaning:main"
 
 [project.urls]
 Homepage = "https://github.com/emiliano-go/autoimmune-disorder-prediction"

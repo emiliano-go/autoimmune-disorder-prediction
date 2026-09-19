@@ -3,5 +3,8 @@
 *.parquet
 *.pkl
 *.joblib
+/*.ipynb
 __pycache__/
 .venv
+.idea/
+.complete/

@@ -10,5 +10,5 @@ def download():
     kagglehub.dataset_download(
         "abdullahragheb/all-autoimmune-disorder-10k",
         path="Autoimmune_Disorder_10k_with_All_Disorders.csv",
-        output_dir="data",
+        output_dir="data/raw",
     )
