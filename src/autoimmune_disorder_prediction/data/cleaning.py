@@ -8,6 +8,9 @@ def main():
                      "Anti-TPO", "Anti-Tg", "Anti-SMA"]
     df[antibody_cols] = df[antibody_cols].fillna(0)
 
+    constant_cols = [c for c in df.columns if df[c].nunique(dropna=False) <= 1]
+    df = df.drop(columns=constant_cols + ["Patient_ID"])
+
     save_dataset(df)
 
 if __name__ == "__main__":
