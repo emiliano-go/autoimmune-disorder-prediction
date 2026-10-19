@@ -15,9 +15,17 @@ engineering.
 │   └── processed/            # Cleaned datasets (Parquet)
 ├── notebooks/
 │   ├── 01_eda.ipynb          # Exploratory data analysis
-│   └── 02_feature.ipynb      # Feature engineering experiments
+│   ├── 02_feature.ipynb      # Feature engineering experiments
+│   ├── 03_eda_visual.ipynb   # Visual EDA: distributions, groups and correlations
+│   ├── 04_model_evaluation.ipynb # Baseline vs ensemble model comparison
+│   └── 05_unsupervised_learning.ipynb # PCA, K-Means and DBSCAN exploration
+├── docs/
+│   ├── 01_problem_framing.md # ML opportunity, data, target and bias analysis
+│   └── 02_unsupervised_analysis.md # Clustering, PCA, business and ethics case study
 ├── src/autoimmune_disorder_prediction/
 │   ├── config.py             # Paths, column names and constants
+│   ├── clustering.py         # Reusable PCA, K-Means and DBSCAN helpers
+│   ├── evaluation.py         # Reusable binary evaluation pipeline
 │   └── data/
 │       ├── download_data.py  # Download the Kaggle dataset
 │       ├── ingestion.py      # Load raw/cleaned data and save Parquet files
@@ -63,6 +71,31 @@ The cleaned data is written to `data/processed/autoimmune_cleaned.parquet`.
 ```bash
 uv run jupyter lab notebooks/
 ```
+
+`03_eda_visual.ipynb` reúne el análisis visual del dataset limpio: distribuciones,
+comparación `Normal` vs. `Autoinmune`, correlaciones y desbalance de clases.
+
+## Problem framing
+
+The project is framed as a triage support tool: first `Normal` vs. `Autoimmune`, then
+multiclass routing among the 115 diseases. The objective, required variables, learning
+type, leakage and bias risks are documented in
+[`docs/01_problem_framing.md`](docs/01_problem_framing.md).
+
+## Model evaluation
+
+`notebooks/04_model_evaluation.ipynb` compares Logistic Regression and Random Forest
+for the binary triage task. It reports confusion matrices, ROC/PR curves, threshold
+selection and cross-validation metrics. The reusable pipeline lives in
+`src/autoimmune_disorder_prediction/evaluation.py`.
+
+## Unsupervised exploration
+
+`notebooks/05_unsupervised_learning.ipynb` explores the dataset without labels: PCA for
+dimensionality reduction, K-Means for patient segmentation and DBSCAN for anomaly
+detection. The case-study write-up is in
+[`docs/02_unsupervised_analysis.md`](docs/02_unsupervised_analysis.md) and the reusable
+helpers live in `src/autoimmune_disorder_prediction/clustering.py`.
 
 ## Development
 
