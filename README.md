@@ -18,7 +18,8 @@ engineering.
 │   ├── 02_feature.ipynb      # Feature engineering experiments
 │   ├── 03_eda_visual.ipynb   # Visual EDA: distributions, groups and correlations
 │   ├── 04_model_evaluation.ipynb # Baseline vs ensemble model comparison
-│   └── 05_unsupervised_learning.ipynb # PCA, K-Means and DBSCAN exploration
+│   ├── 05_unsupervised_learning.ipynb # PCA, K-Means and DBSCAN exploration
+│   └── 06_entrega_final.ipynb # End-to-end deliverable (Spanish, self-contained)
 ├── docs/
 │   ├── 01_problem_framing.md # ML opportunity, data, target and bias analysis
 │   └── 02_unsupervised_analysis.md # Clustering, PCA, business and ethics case study
@@ -96,6 +97,26 @@ dimensionality reduction, K-Means for patient segmentation and DBSCAN for anomal
 detection. The case-study write-up is in
 [`docs/02_unsupervised_analysis.md`](docs/02_unsupervised_analysis.md) and the reusable
 helpers live in `src/autoimmune_disorder_prediction/clustering.py`.
+
+## Final deliverable
+
+`notebooks/06_entrega_final.ipynb` is the end-to-end notebook submitted for the Data Science I
+course. It is **self-contained** (no import of `src/`, it locates the CSV itself), written in
+Spanish, and covers the full workflow: problem framing, cleaning, leakage audit, EDA, feature
+engineering, modelling, evaluation, clustering and business conclusions.
+
+Key finding documented there: the dataset is synthetic and the label is encoded in the features
+(all ten symptoms are zero for every `Normal` patient, `Sickness_Duration_Months` is zero, and the
+antibody panel is missing exactly on those 2,500 rows). Any reasonable model reaches F1 ≈ 1.00,
+which measures the generator, not clinical skill. The notebook reports that honestly and then
+measures the genuinely hard task — 116-class differential diagnosis, macro-F1 ≈ 0.17, bimodal
+between 18 diseases with an exclusive antibody marker and 84 that are never predicted.
+
+Run it with:
+
+```bash
+uv run jupyter lab notebooks/06_entrega_final.ipynb
+```
 
 ## Development
 
